@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
-import { DISHES } from '../shared/dishes';
 import Dishdetail from './DishdetailComponent';
 import { View, Platform } from 'react-native';
-import MenuNavigator from '../navigator/MenuNavigator';
+import MainNavigator from '../navigator/MainNavigator';
 // import { createStackNavigator } from 'react-navigation';
 
 class Main extends Component {
@@ -12,7 +11,7 @@ class Main extends Component {
  
     return (
         <View style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight}}>
-          <MenuNavigator /> 
+          <MainNavigator /> 
         </View>
     );
   }
