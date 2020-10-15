@@ -1,9 +1,9 @@
 import { createAppContainer } from 'react-navigation';
-import Home from '../components/HomeComponent';
+import About from '../components/AboutComponent';
 import { createStackNavigator } from 'react-navigation-stack';
-   
-const HomeNavigator = createStackNavigator({
-    Home: { screen: Home }
+
+const AboutNavigator = createStackNavigator({
+    About: { screen: About }
   },
   {
     defaultNavigationOptions: {
@@ -17,4 +17,4 @@ const HomeNavigator = createStackNavigator({
     }
   }
   );
-  export default createAppContainer(HomeNavigator);
+  export default createAppContainer(AboutNavigator);

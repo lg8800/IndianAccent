@@ -1,9 +1,11 @@
 import { createAppContainer } from 'react-navigation';
-import Home from '../components/HomeComponent';
+import Contact from '../components/ContactComponent';
+import About from '../components/AboutComponent';
 import { createStackNavigator } from 'react-navigation-stack';
-   
-const HomeNavigator = createStackNavigator({
-    Home: { screen: Home }
+
+const ContactNavigator = createStackNavigator({
+    Contact: { screen: Contact },
+    About: { screen: About },
   },
   {
     defaultNavigationOptions: {
@@ -17,4 +19,4 @@ const HomeNavigator = createStackNavigator({
     }
   }
   );
-  export default createAppContainer(HomeNavigator);
+  export default createAppContainer(ContactNavigator);
