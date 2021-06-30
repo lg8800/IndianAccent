@@ -9,3 +9,7 @@ export const PROMOS_FAILED = 'PROMOS_FAILED';
 export const LEADERS_LOADING = 'PROMOS_LOADING';
 export const ADD_LEADERS = 'ADD_PROMOS';
 export const LEADERS_FAILED = 'PROMOS_FAILED';
+export const POST_FAVORITE = 'POST_FAVORITE';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';

@@ -6,6 +6,9 @@ import Menu from '../components/MenuComponent';
 import Contact from '../components/ContactComponent';
 import About from '../components/AboutComponent';
 import Dishdetail from '../components/DishdetailComponent';
+import Reservation from '../components/ReservationComponent';
+import Login from '../components/LoginComponent';
+import Favorites from '../components/FavoriteComponent';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Icon } from 'react-native-elements';
 import { View, Platform, Image, StyleSheet, ScrollView, Text } from 'react-native';
@@ -16,7 +19,7 @@ const HomeNavigator = createStackNavigator({
   {
     defaultNavigationOptions: ({ navigation }) => ({
         headerStyle: {
-            backgroundColor: "#512DA8"
+            backgroundColor: "#fa0255"
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -43,7 +46,7 @@ const MenuNavigator = createStackNavigator({
 	  initialRouteName: 'Menu',
 	  defaultNavigationOptions: {
 		  headerStyle: {
-			  backgroundColor: "#512DA8"
+			  backgroundColor: "#fa0255"
 		  },
 		  headerTintColor: '#fff',
 		  headerTitleStyle: {
@@ -52,14 +55,13 @@ const MenuNavigator = createStackNavigator({
 	  }
 	});
 
-
 const ContactNavigator = createStackNavigator({
     Contact: { screen: Contact }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
         headerStyle: {
-            backgroundColor: "#512DA8"
+            backgroundColor: "#fa0255"
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -72,14 +74,70 @@ const ContactNavigator = createStackNavigator({
     })
   });
 
-
 const AboutNavigator = createStackNavigator({
     About: { screen: About }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
         headerStyle: {
-            backgroundColor: "#512DA8"
+            backgroundColor: "#fa0255"
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            color: "#fff"            
+        },
+        headerLeft: () => <Icon name='menu' size={24}
+            color='white'
+            onpress={() => navigation.toggleDrawer()}
+            />
+    })
+  });
+
+  const ReservationNavigator = createStackNavigator({
+    Reservation: { screen: Reservation }
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+        headerStyle: {
+            backgroundColor: "#fa0255"
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            color: "#fff"            
+        },
+        headerLeft: () => <Icon name='menu' size={24}
+            color='white'
+            onpress={() => navigation.toggleDrawer()}
+            />
+    })
+  });
+
+  const FavoritesNavigator = createStackNavigator({
+    Favorites: { screen: Favorites }
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+        headerStyle: {
+            backgroundColor: "#fa0255"
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            color: "#fff"            
+        },
+        headerLeft: () => <Icon name='menu' size={24}
+            color='white'
+            onpress={() => navigation.toggleDrawer()}
+            />
+    })
+  });
+
+  const LoginNavigator = createStackNavigator({
+    Login: { screen: Login }
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+        headerStyle: {
+            backgroundColor: "#fa0255"
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -99,12 +157,12 @@ const CustomDrawerCurrentComponent = (props) => {
       forceInset={{ top: 'always', horizontal: 'never' }}>
         <View style={styles.drawerHeader}>
           <View style={{flex: 1}}>
-            <Image source={require('../components/images/logo.png')}
+            <Image source={require('../components/images/indianaccent.png')}
               style={styles.drawerImage} />
           </View>
           <View style={{flex: 2}}>
             <Text style={styles.drawerHeaderText}>
-              Ristorante Con Fusion
+              Indian Accent
             </Text>
           </View>
         </View>
@@ -115,6 +173,20 @@ const CustomDrawerCurrentComponent = (props) => {
 }
 
 const MainNavigator = createDrawerNavigator({
+    Login: { 
+      screen: LoginNavigator,
+      navigationOptions: {
+        drawerLabel: "Login",
+        drawerIcon: ({ tintColor }) => (
+          <Icon
+            name='sign-in'
+            type='font-awesome'
+            size={24}
+            color={tintColor}
+            />
+        )
+      }
+    },
     Home: { 
 	    screen: HomeNavigator,
 	    navigationOptions: {
@@ -170,9 +242,38 @@ const MainNavigator = createDrawerNavigator({
             />
         )
 		}
-  },
+    },
+    Favorites: {
+      screen: FavoritesNavigator,
+      navigationOptions: {
+        drawerLabel: "My Favorites",
+        drawerIcon: ({ tintColor }) => (
+          <Icon
+            name='heart'
+            type='font-awesome'
+            size={22}
+            color={tintColor}
+            />
+        )
+    }
+    },
+  Reservation: {
+    screen: ReservationNavigator,
+    navigationOptions: {
+      drawerLabel: "Reserve Table",
+      drawerIcon: ({ tintColor }) => (
+        <Icon
+          name='cutlery'
+          type='font-awesome'
+          size={22}
+          color={tintColor}
+          />
+      )
+    }
+  }
 }, {	
-      drawerBackgroundColor: '#D1C4E9',
+      initialRouteName: 'Home',
+      drawerBackgroundColor: '#f0f0f0',
       contentComponent: CustomDrawerCurrentComponent
 });
 
@@ -181,7 +282,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   drawerHeader: {
-    backgroundColor: '#512DAB',
+    backgroundColor: '#fa0255',
     height: 140,
     alignItems: 'center',
     justifyContent: 'center',
